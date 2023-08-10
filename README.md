@@ -1,141 +1,390 @@
-<h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="Github101_Trke_Dkmantasyon_0"></a>Github101 Türkçe Dökümantasyon</h1>
-<h2 class="code-line" data-line-start=1 data-line-end=2 ><a id="ehir_Teknolojileri_Birimi_in_Hazrlanmtr_Genel_Kullanma_Aktr_1"></a>Şehir Teknolojileri Birimi İçin Hazırlanmıştır. Genel Kullanıma Açıktır.</h2>
-<p class="has-line-data" data-line-start="3" data-line-end="4">İçindekiler</p>
-<ul>
-<li class="has-line-data" data-line-start="5" data-line-end="6">Git Nedir?</li>
-<li class="has-line-data" data-line-start="6" data-line-end="7">Git’e Neden İhtiyaç Duyarız?</li>
-<li class="has-line-data" data-line-start="7" data-line-end="8">Git’in Çalışma Mantığı</li>
-<li class="has-line-data" data-line-start="8" data-line-end="9">Git’in Yapılandırması</li>
-<li class="has-line-data" data-line-start="9" data-line-end="10">Git Projesi Oluşturma</li>
-<li class="has-line-data" data-line-start="10" data-line-end="11">Dosyaları Git Deposuna (Repository) Ekleme</li>
-<li class="has-line-data" data-line-start="11" data-line-end="12">Git Dosyasındaki Değişiklikler</li>
-<li class="has-line-data" data-line-start="12" data-line-end="13">Git’ten Dosya Silme</li>
-<li class="has-line-data" data-line-start="13" data-line-end="14">Projedeki Dosyanın İsmini Değiştirme</li>
-<li class="has-line-data" data-line-start="14" data-line-end="15">Dosya Taşıma</li>
-<li class="has-line-data" data-line-start="15" data-line-end="16">Dosyadaki Değişiklikleri Geri Alma</li>
-<li class="has-line-data" data-line-start="16" data-line-end="17">Versiyon Değiştirme</li>
-<li class="has-line-data" data-line-start="17" data-line-end="18">Git Dallanma (Branch)</li>
-<li class="has-line-data" data-line-start="18" data-line-end="19">Uzak Repo’dan Local’e Proje Çekme (Clone)</li>
-<li class="has-line-data" data-line-start="19" data-line-end="20">Uzak Repodan Değişiklikleri Local Repoya Çekmek (Pull komutu)</li>
-<li class="has-line-data" data-line-start="20" data-line-end="21">GitHub Nedir?</li>
-<li class="has-line-data" data-line-start="21" data-line-end="22">GitHub Neden Kullanılır?</li>
-<li class="has-line-data" data-line-start="22" data-line-end="23">GitHub Repository (Depo) Oluşturma</li>
-<li class="has-line-data" data-line-start="23" data-line-end="24">GitHub’a Proje Gönderme</li>
-<li class="has-line-data" data-line-start="24" data-line-end="25">GitHub Branch</li>
-<li class="has-line-data" data-line-start="25" data-line-end="26">GitHub Issues</li>
-<li class="has-line-data" data-line-start="26" data-line-end="28">Github Issue Closed</li>
-</ul>
-<h2 class="code-line" data-line-start=28 data-line-end=29 ><a id="Git_Nedir_28"></a>Git Nedir</h2>
-<p class="has-line-data" data-line-start="30" data-line-end="31">Bir versiyon kontrol sistemidir. Yapacağınız projelerin kopyalarını alarak projelerinizin eski versiyonlarına kolaylıkla geri dönmenizi sağlayan bir sistemdir.</p>
-<blockquote>
-<p class="has-line-data" data-line-start="33" data-line-end="34">Git sistemi, Linux çekirdeğini yazan Linus Torvalds tarafından geliştirilmiştir. Açık kaynak kodlu özgür yazılım ürünüdür.</p>
-</blockquote>
-<h2 class="code-line" data-line-start=35 data-line-end=36 ><a id="Git_alma_Mant_35"></a>Git Çalışma Mantığı</h2>
-<p class="has-line-data" data-line-start="37" data-line-end="38">Git çalışma mantığı olarak diğer versiyon kontrol sistemlerinden biraz farklıdır. Diğer versiyon kontrol sistemleri, commit işleminde dosyaların değişiklik durumuna göre yeni versiyon kopyasında dosyanın durumunu kaydeder. Ancak git’te her versiyon için projenin tamamının durumu kaydedilir. Çalışma alanı olarak üçe ayrılmaktadır. Çalışma dizinimizde (working directory) git projesi başlatarak işe koyuluruz. Bu alan sistemin ilk alanıdır. Daha sonra çalışma dizinimizdeki dosyaları geçiş bölgesine (staging area) ekleriz. Bu alan sistemin ara alanıdır.</p>
-<h2 class="code-line" data-line-start=39 data-line-end=40 ><a id="Git_Yaplandrmas_39"></a>Git Yapılandırması</h2>
-<p class="has-line-data" data-line-start="41" data-line-end="42">-1- Kullanıcı Adı Belirleme.</p>
-<pre><code class="has-line-data" data-line-start="43" data-line-end="45" class="language-sh">git config --global user.name “username”
-</code></pre>
-<p class="has-line-data" data-line-start="45" data-line-end="46">-2- E-mail Belirleme</p>
-<pre><code class="has-line-data" data-line-start="48" data-line-end="50" class="language-sh">git config --global user.email “email_adress”
-</code></pre>
-<h2 class="code-line" data-line-start=51 data-line-end=52 ><a id="Git_Projesi_Oluturma_51"></a>Git Projesi Oluşturma</h2>
-<p class="has-line-data" data-line-start="53" data-line-end="54">Proje klasörünün bulunduğu konuma giderek projeyi <code>git init</code> komutuyla oluşturabilirsiniz</p>
-<h2 class="code-line" data-line-start=56 data-line-end=57 ><a id="Dosyalar_Git_Deposuna_Repository_Ekleme_56"></a>Dosyaları Git Deposuna (Repository) Ekleme</h2>
-<p class="has-line-data" data-line-start="58" data-line-end="59">Repository Git projenizin Git tarafından saklandığı yerdir.</p>
-<pre><code class="has-line-data" data-line-start="61" data-line-end="64" class="language-sh">git add .
-git commit -m <span class="hljs-string">"first commit"</span>
-</code></pre>
-<p class="has-line-data" data-line-start="65" data-line-end="66">Projenizin bir versiyon kopyasını oluşturmuş oldunuz. Birinci satırdaki ‘add‘ komutu dosyaları geçiş bölgesine (staging area) yükle anlamına geliyor.  Add komutunun yanındaki nokta çalışma alanındaki tüm dosyaları geçiş bölgesine gönder anlamına gelir eğer siz belli bir dosya göndermek istiyorsanız o dosyanın adını yazabilirsiniz.</p>
-<p class="has-line-data" data-line-start="67" data-line-end="68">Projede en az bir kere yukardaki yöntem ile repoya dosya yüklediyseniz ve bundan sonra dosyalarınızı geçiş bölgesine eklemeden direk repoya atmak istiyorsanız aşağıdaki kod bloğunu kullanabilirsiniz.</p>
-<p class="has-line-data" data-line-start="69" data-line-end="70"><code>git commit -am &quot;first commit&quot;</code></p>
-<p class="has-line-data" data-line-start="71" data-line-end="72">Log kayıtlarını görüntülemek</p>
-<pre><code class="has-line-data" data-line-start="73" data-line-end="75" class="language-sh">git <span class="hljs-built_in">log</span>
-</code></pre>
-<h4 class="code-line" data-line-start=76 data-line-end=77 ><a id="Git_Dosyasndaki_Deiiklikler_76"></a>Git Dosyasındaki Değişiklikler</h4>
-<p class="has-line-data" data-line-start="78" data-line-end="79"><code>status</code> komutu, çalışma dizininin durumunu ve hazırlama alanını görüntüler.  Hangi değişikliklerin hazırlandığını, hangilerinin yapılmadığını ve hangi dosyaların Git tarafından izlenmediğini görmenizi sağlar.</p>
-<pre><code class="has-line-data" data-line-start="80" data-line-end="82" class="language-sh">git status
-</code></pre>
-<p class="has-line-data" data-line-start="83" data-line-end="84"><code>diff</code> komutu, çalışma dizinin durumunu ve hazırlanma alanını satır şeklinde görüntülemenizi sağlar. Sadece belirli dosyalardaki değişikliğe bakmak için dosyanın uazntısını eklemelisiniz.</p>
-<pre><code class="has-line-data" data-line-start="86" data-line-end="88" class="language-sh">git diff
-</code></pre>
-<p class="has-line-data" data-line-start="88" data-line-end="89"><code>git diff dirctory/</code></p>
-<h2 class="code-line" data-line-start=90 data-line-end=91 ><a id="Gitten_Dosya_Silme_90"></a>Git’ten Dosya Silme</h2>
-<p class="has-line-data" data-line-start="92" data-line-end="93">Git projesinden dosya silmek için iki tane yöntem var. Birincisi direkt çalışma dizininden silmek, ikincisi ise komutlar ile silmek.</p>
-<p class="has-line-data" data-line-start="94" data-line-end="95">Birincisini anlatarak başlıyorum. Proje dosyanıza giderek dosyanızı siliyorsunuz. Ve sırasıyla aşağıdaki komutları yazarak silme işlemini gerçekleştirmiş olursunuz.</p>
-<pre><code class="has-line-data" data-line-start="98" data-line-end="101" class="language-sh">git rm  rm_file/
-git commit -m <span class="hljs-string">"file deleting”
-</span></code></pre>
-<h2 class="code-line" data-line-start=101 data-line-end=102 ><a id="Git_Dosya_smi_Deitirme_101"></a>Git Dosya İsmi Değiştirme</h2>
-<pre><code class="has-line-data" data-line-start="104" data-line-end="107" class="language-sh">git mv file_first_name last_name
+
+# Github101 Türkçe Dökümantasyon
+
+## Git ve GitHub, yazılım geliştirme süreçlerinde versiyon kontrolü ve işbirliği yapma olanağı sunan popüler araçlardır. Bu dökümantasyonda, Git ve GitHub'ın temel özellikleri ve kullanımı hakkında bilgiler bulacaksınız.
+
+### İçindekiler
+
+- Git Nedir?
+- Git’e Neden İhtiyaç Duyarız?
+- Git’in Çalışma Mantığı
+- Git’in Yapılandırması
+- Git Temel Komutlar
+- Git Projesi Oluşturma
+- Dosyaları Git Deposuna (Repository) Ekleme
+- Git Dosyasındaki Değişiklikler
+- Git’ten Dosya Silme
+- Projedeki Dosyanın İsmini Değiştirme
+- Dosya Taşıma
+- Dosyadaki Değişiklikleri Geri Alma
+- Versiyon Değiştirme
+- Git Dallanma (Branch)
+- Uzak Repo’dan Local’e Proje Çekme (Clone)
+- Uzak Repodan Değişiklikleri Local Repoya Çekmek (Pull komutu)
+- GitHub Nedir?
+- GitHub Neden Kullanılır?
+- GitHub Repository (Depo) Oluşturma
+- GitHub’a Proje Gönderme
+- GitHub Branch
+- GitHub Issues
+- Github Issue Closed
+
+## Git Nedir
+
+Bir versiyon kontrol sistemidir. Yapacağınız projelerin kopyalarını alarak projelerinizin eski versiyonlarına kolaylıkla geri dönmenizi sağlayan bir sistemdir.
+
+> Git sistemi, Linux çekirdeğini yazan Linus Torvalds tarafından geliştirilmiştir. Açık kaynak kodlu özgür yazılım ürünüdür.
+
+## Git Kurulumu
+Farklı işletim sistemleri için Git kurulum adımları:
+
+
+- **Windows:** [Git for Windows](https://gitforwindows.org/) üzerinden indirip kurabilirsiniz.
+- **MacOS:** `brew install git` komutu ile Homebrew üzerinden kurabilirsiniz.
+- **Linux:** Paket yöneticinize bağlı olarak `sudo apt-get install git` veya `sudo yum install git` komutları ile kurabilirsiniz.
+
+## Git Çalışma Mantığı
+
+Git çalışma mantığı olarak diğer versiyon kontrol sistemlerinden biraz farklıdır. Diğer versiyon kontrol sistemleri, commit işleminde dosyaların değişiklik durumuna göre yeni versiyon kopyasında dosyanın durumunu kaydeder. Ancak git’te her versiyon için projenin tamamının durumu kaydedilir. Çalışma alanı olarak üçe ayrılmaktadır. Çalışma dizinimizde (working directory) git projesi başlatarak işe koyuluruz. Bu alan sistemin ilk alanıdır. Daha sonra çalışma dizinimizdeki dosyaları geçiş bölgesine (staging area) ekleriz. Bu alan sistemin ara alanıdır.
+
+
+## Git Temel Komutlar
+Git'in temel komutları ve kullanımları:
+
+- `git init`: Yeni bir Git deposu başlatır.
+- `git add`: Değişiklikleri hazırlama alanına ekler.
+- `git commit`: Hazırlanan değişiklikleri kaydeder.
+- `git status`: Çalışma dizinindeki değişiklikleri gösterir.
+- `git log`: Commit geçmişini gösterir.
+- `git diff`: Son commit ile çalışma dizini arasındaki farkları gösterir.
+- `git branch`: Mevcut dalları listeler.
+- `git checkout`: Belirtilen dala geçer veya belirtilen commit'e gider.
+- `git merge`: İki dalı birleştirir.
+- `git stash`: Değişiklikleri geçici olarak kaydeder.
+- `git rebase`: Bir dal üzerindeki değişiklikleri başka bir dal üzerine uygular.
+- `git clone`: Bir Git deposunun kopyasını oluşturur.
+- `git pull`: Uzak depodan değişiklikleri alır ve mevcut dal ile birleştirir.
+- `git push`: Yerel değişiklikleri uzak depoya gönderir.
+- `git remote`: Uzak depoları listeler veya yeni bir uzak depo ekler.
+- `git fetch`: Uzak depodan değişiklikleri alır fakat otomatik olarak birleştirmez.
+- `git reset`: Belirtilen commit'e kadar olan değişiklikleri geri alır.
+- `git rm`: Dosyayı çalışma dizininden ve hazırlama alanından siler.
+- `git mv`: Dosyanın adını değiştirir veya taşır.
+- `git tag`: Versiyon etiketleri oluşturur veya mevcut etiketleri listeler.
+- `git show`: Belirtilen commit, etiket veya dal hakkında bilgi gösterir.
+- `git config`: Git ayarlarını yapılandırır.
+
+
+
+
+## Git Yapılandırması
+
+1. Kullanıcı Adı Belirleme.
+
+```sh
+git config --global user.name “username”
+```
+
+2. E-mail Belirleme
+
+```sh
+git config --global user.email “email_adress”
+```
+
+## Git Projesi Oluşturma
+
+Proje klasörünün bulunduğu konuma giderek projeyi `git init` komutuyla oluşturabilirsiniz.
+
+## Dosyaları Git Deposuna (Repository) Ekleme
+
+Repository Git projenizin Git tarafından saklandığı yerdir.
+
+```sh
+git add .
+git commit -m "first commit"
+```
+
+Projenizin bir versiyon kopyasını oluşturmuş oldunuz. Birinci satırdaki ‘add‘ komutu dosyaları geçiş bölgesine (staging area) yükle anlamına geliyor.  Add komutunun yanındaki nokta çalışma alanındaki tüm dosyaları geçiş bölgesine gönder anlamına gelir eğer siz belli bir dosya göndermek istiyorsanız o dosyanın adını yazabilirsiniz.
+
+Projede en az bir kere yukardaki yöntem ile repoya dosya yüklediyseniz ve bundan sonra dosyalarınızı geçiş bölgesine eklemeden direk repoya atmak istiyorsanız aşağıdaki kod bloğunu kullanabilirsiniz.
+
+```sh
+git commit -am "first commit"
+```
+
+Log kayıtlarını görüntülemek
+
+```sh
+git log
+```
+
+### Git Dosyasındaki Değişiklikler
+
+`status` komutu, çalışma dizininin durumunu ve hazırlama alanını görüntüler.  Hangi değişikliklerin hazırlandığını, hangilerinin yapılmadığını ve hangi dosyaların Git tarafından izlenmediğini görmenizi sağlar.
+
+```sh
+git status
+```
+
+`diff` komutu, çalışma dizinin durumunu ve hazırlanma alanını satır şeklinde görüntülemenizi sağlar. Sadece belirli dosyalardaki değişikliğe bakmak için dosyanın uazntısını eklemelisiniz.
+
+```sh
+git diff
+```
+
+```sh
+git diff dirctory/
+```
+
+## Git’ten Dosya Silme
+
+Git projesinden dosya silmek için iki tane yöntem var. Birincisi direkt çalışma dizininden silmek, ikincisi ise komutlar ile silmek.
+
+Birincisini anlatarak başlıyorum. Proje dosyanıza giderek dosyanızı siliyorsunuz. Ve sırasıyla aşağıdaki komutları yazarak silme işlemini gerçekleştirmiş olursunuz.
+
+```sh
+git rm  rm_file/
+git commit -m "file deleting”
+```
+
+## Git Dosya İsmi Değiştirme
+
+```sh
+git mv file_first_name last_name
 git commit -m “name change”
-</code></pre>
-<h2 class="code-line" data-line-start=107 data-line-end=108 ><a id="Git_Dosya_Tama_107"></a>Git Dosya Taşıma</h2>
-<pre><code class="has-line-data" data-line-start="110" data-line-end="113" class="language-sh">git mv filenameToMove destinationFolder
+```
+
+## Git Dosya Taşıma
+
+```sh
+git mv filenameToMove destinationFolder
 git commit -m “Migration process”
-</code></pre>
-<h2 class="code-line" data-line-start=114 data-line-end=115 ><a id="Dosyadaki_Deiiklikleri_Geri_Alma_114"></a>Dosyadaki Değişiklikleri Geri Alma</h2>
-<p class="has-line-data" data-line-start="116" data-line-end="117">Dosyada yapılan değişiklikleri geri almak</p>
-<pre><code class="has-line-data" data-line-start="119" data-line-end="121">git checkout -- changed_filename
-</code></pre>
-<p class="has-line-data" data-line-start="122" data-line-end="123">Dosyaları <code>git add</code> ile ekledikten sonraki değişiklikleri geri almak</p>
-<pre><code class="has-line-data" data-line-start="125" data-line-end="128">git reset HEAD file_name 
+```
+
+## Dosyadaki Değişiklikleri Geri Alma
+
+Dosyada yapılan değişiklikleri geri almak
+
+```sh
+git checkout -- changed_filename
+```
+
+Dosyaları `git add` ile ekledikten sonraki değişiklikleri geri almak
+
+```sh
+git reset HEAD file_name 
 git checkout -- file_name
-</code></pre>
-<h2 class="code-line" data-line-start=128 data-line-end=129 ><a id="Versiyon_Deitirme_128"></a>Versiyon Değiştirme</h2>
-<p class="has-line-data" data-line-start="130" data-line-end="131">Bu işlem için git log ile versiyonları sıralıyoruz ve gitmek istediğimiz versiyonun hash kodunu alıyoruz. (Hash code, commit yazısının yanında bulunan kod satırıdır.)</p>
-<pre><code class="has-line-data" data-line-start="133" data-line-end="136">git checkout version_hash_code -- .
+```
+
+## Versiyon Değiştirme
+
+Bu işlem için git log ile versiyonları sıralıyoruz ve gitmek istediğimiz versiyonun hash kodunu alıyoruz. (Hash code, commit yazısının yanında bulunan kod satırıdır.)
+
+```sh
+git checkout version_hash_code -- .
 git commit – m “old version copied”
-</code></pre>
-<h2 class="code-line" data-line-start=136 data-line-end=137 ><a id="Git_Branch_136"></a>Git Branch</h2>
-<p class="has-line-data" data-line-start="137" data-line-end="138">Git projesi oluşturduğunuzda varsayılan olarak main brach oluşur ve siz bu dal üzerinden işlemlerinizi gerçekleştirirsiniz. Bireysel çalışılan bir projede bu yöntem ile bir sıkıntı yaşamazsınız. Ancak çoklu projelerde çalışıyorsanız ve takım üyeleri projenin farklı alanları ile ilgileniyorsa o zaman sıkıntı yaşamaya başlayabilirsiniz. Branch sayesinde her takım üyesi kendi branch‘ında çalışarak diğer takım arkadaşlarının kodlarında değişikliğe sebebiyet vermez. Proje bitiminde merge işlemi ile tüm proje branch’ları master branch’ında birleştirilebilir.</p>
-<ul>
-<li class="has-line-data" data-line-start="139" data-line-end="140">Branch Listesini Görme</li>
-</ul>
-<pre><code class="has-line-data" data-line-start="141" data-line-end="144">git branch
-Not : Aktif olan branch * sembolü ile gösterilir
-</code></pre>
-<ul>
-<li class="has-line-data" data-line-start="144" data-line-end="145">Yeni Branch Oluşturma</li>
-</ul>
-<pre><code class="has-line-data" data-line-start="146" data-line-end="148">git branch new_branch_name
-</code></pre>
-<ul>
-<li class="has-line-data" data-line-start="148" data-line-end="149">Oluşturulan Branch’a Geçiş Yapmak</li>
-</ul>
-<pre><code class="has-line-data" data-line-start="150" data-line-end="152">git checkout new_branch_name
-</code></pre>
-<p class="has-line-data" data-line-start="152" data-line-end="153"><strong>Hem branch oluşturup hem de branch’a geçiş yapmak istiyorsanız aşağıdaki kodu kullanabilirsiniz.</strong></p>
-<pre><code class="has-line-data" data-line-start="154" data-line-end="156">git checkout -b new_branch_name
-</code></pre>
-<ul>
-<li class="has-line-data" data-line-start="156" data-line-end="157">Branch’ın İsmini Değiştirmek</li>
-</ul>
-<pre><code class="has-line-data" data-line-start="158" data-line-end="160">git branch -m new_branch_name newBranch
-</code></pre>
-<ul>
-<li class="has-line-data" data-line-start="160" data-line-end="161">Branch Silmek</li>
-</ul>
-<pre><code class="has-line-data" data-line-start="162" data-line-end="164">git branch -D newBranch
-</code></pre>
-<ul>
-<li class="has-line-data" data-line-start="165" data-line-end="167">Branch’ları Birleştirmek (Merge)</li>
-</ul>
-<pre><code class="has-line-data" data-line-start="168" data-line-end="170">git merge master newBranch
-</code></pre>
-<h2 class="code-line" data-line-start=171 data-line-end=172 ><a id="Uzak_Git_Sunucusundan_HTTP_proje_ekmek_171"></a>Uzak Git Sunucusundan HTTP proje çekmek</h2>
-<pre><code class="has-line-data" data-line-start="174" data-line-end="178">git clone https://github.com/username/your_git_repo
-`örneğin`
+```
+
+## Git Branch
+
+Git projesi oluşturduğunuzda varsayılan olarak main branch oluşur ve siz bu dal üzerinden işlemlerinizi gerçekleştirirsiniz. Bireysel çalışılan bir projede bu yöntem ile bir sıkıntı yaşamazsınız. Ancak çoklu projelerde çalışıyorsanız ve takım üyeleri projenin farklı alanları ile ilgileniyorsa o zaman sıkıntı yaşamaya başlayabilirsiniz. Branch sayesinde her takım üyesi kendi branch‘ında çalışarak diğer takım arkadaşlarının kodlarında değişikliğe sebebiyet vermez. Proje bitiminde merge işlemi ile tüm proje branch’ları main branch’ında birleştirilebilir.
+
+- Branch Listesini Görme
+
+```sh
+git branch
+```
+
+Not: Aktif olan branch * sembolü ile gösterilir
+
+- Yeni Branch Oluşturma
+
+```sh
+git branch new_branch_name
+```
+
+- Oluşturulan Branch’a Geçiş Yapmak
+
+```sh
+git checkout new_branch_name
+```
+
+**Hem branch oluşturup hem de branch’a geçiş yapmak istiyorsanız aşağıdaki kodu kullanabilirsiniz.**
+
+```sh
+git checkout -b new_branch_name
+```
+
+- Branch’ın İsmini Değiştirmek
+
+```sh
+git branch -m new_branch_name newBranch
+```
+
+- Branch Silmek
+
+```sh
+git branch -D newBranch
+```
+
+- Branch’ları Birleştirmek (Merge)
+
+```sh
+git merge master newBranch
+```
+
+## Uzak Git Sunucusundan HTTP proje çekmek
+
+```sh
+git clone https://github.com/username/your_git_repo
+```
+
+Örneğin:
+
+```sh
 git clone https://github.com/kadirbelkuyu/try.git
-</code></pre>
-<h2 class="code-line" data-line-start=178 data-line-end=179 ><a id="Deiiklikleri_local_sunucunuza_ekmek_178"></a>Değişiklikleri local sunucunuza çekmek</h2>
-<pre><code class="has-line-data" data-line-start="181" data-line-end="184">git pull
+```
+
+## Değişiklikleri local sunucunuza çekmek
+
+```sh
+git pull
 git pull 'remote_address' 'branch_name'
-</code></pre>
-<h1 class="code-line" data-line-start=185 data-line-end=186 ><a id="Github_Proje_Gnderme_185"></a>Github Proje Gönderme</h1>
-<pre><code class="has-line-data" data-line-start="188" data-line-end="194">git init
+```
+
+# Github Proje Gönderme
+
+```sh
+git init
 git add .
 git commit -m “first commit”
 git remote add origin repository_name.git
 git push -u origin main
-</code></pre>
+```
+
+
+## Git İleri Seviye Komutlar ve Kavramlar
+
+### Git Cherry-Pick
+Belirli bir commit'i başka bir dal üzerine uygulamak için kullanılır.
+```bash
+git cherry-pick COMMIT_HASH
+```
+
+### Git Bisect
+Bir hatanın ne zaman meydana geldiğini bulmak için kullanılır. Git, otomatik olarak commit'leri test ederek hatanın ilk meydana geldiği commit'i bulmanıza yardımcı olur.
+
+### Git Revert
+Bir commit'in değişikliklerini geri almak için kullanılır, fakat commit geçmişini değiştirmez.
+```bash
+git revert COMMIT_HASH
+```
+
+## GitHub İleri Seviye Özellikler
+
+### GitHub Actions ile CI/CD
+GitHub Actions, kodunuzu otomatik olarak test etmek ve dağıtmak için kullanabileceğiniz bir CI/CD aracıdır. `.github/workflows` klasörü altında YAML formatında iş akışı tanımlamaları yapabilirsiniz.
+
+### GitHub Code Review
+Pull request'ler üzerinde kod incelemesi yapma, yorum bırakma ve değişiklik önerme.
+
+### GitHub Packages
+Kütüphanelerinizi ve uygulamalarınızı GitHub üzerinde depolama ve dağıtma olanağı.
+
+## Git ve GitHub İle İlgili İpuçları
+
+1. **Atomik Commit'ler:** Her commit'in tek bir değişikliği yansıtmasına özen gösterin. Bu, gelecekte değişiklikleri takip etmeyi ve hataları bulmayı kolaylaştırır.
+2. **Açıklayıcı Commit Mesajları:** Commit mesajlarınızın, değişikliğin neden yapıldığını açıkça belirtmesi önemlidir.
+3. **Pull Request Kullanımı:** Yeni bir özellik eklerken veya bir hatayı düzeltirken, bu değişiklikleri ana dalınıza doğrudan eklemek yerine bir pull request oluşturun. Bu, kod incelemesi yapmayı ve hataları önceden yakalamayı kolaylaştırır.
+
+## Sıkça Sorulan Sorular
+
+- **Q:** Git'te "detached HEAD" ne demektir?
+    - **A:** HEAD, şu anki dalınızın en son commit'ini işaret eder. "Detached HEAD", HEAD'in spesifik bir commit'i işaret ettiği, herhangi bir dalda olmadığı anlamına gelir.
+
+- **Q:** GitHub'da forking ne demektir?
+    - **A:** Forking, bir başkasının GitHub deposunun kendi hesabınıza bir kopyasını oluşturmanız anlamına gelir. Bu, projeye katkıda bulunmak için kullanılır.
+
+---
+
+
+## Gelişmiş Konular
+
+### Git Hooks
+Git Hooks, Git komutları çalıştırıldığında otomatik olarak tetiklenen scriptlerdir. Örneğin, bir commit oluşturmadan önce belirli bir testi çalıştırmak isterseniz `pre-commit` hook'unu kullanabilirsiniz.
+```bash
+# .git/hooks/pre-commit
+#!/bin/sh
+npm test
+```
+
+### Git Submodules
+Bir Git deposunda başka bir Git deposunu alt modül olarak kullanabilirsiniz. Bu, bağımlılıkları yönetmek için kullanışlıdır.
+```bash
+git submodule add [URL] [klasör_adı]
+```
+
+### .gitignore
+Git'in izlememesi gereken dosyaları veya klasörleri belirtir. Örneğin, `node_modules` klasörünü izlemek istemiyorsanız:
+```
+# .gitignore dosyası
+node_modules/
+```
+
+## GitHub Özellikleri
+
+### GitHub Actions
+Kodunuzu otomatik olarak test etmek, derlemek ve dağıtmak için kullanabileceğiniz bir CI/CD aracıdır. Örneğin, bir Node.js uygulamasını test etmek için:
+```yaml
+# .github/workflows/main.yml
+name: Node.js CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '18.x'
+    - run: npm install
+    - run: npm test
+```
+
+### GitHub Pages
+Statik web siteleri barındırma. Örneğin, `docs` klasöründeki HTML dosyalarınızı GitHub Pages ile yayınlamak için repository ayarlarınızda GitHub Pages bölümünden `docs` klasörünü seçin.
+
+### GitHub Gists
+Kod parçacıklarını paylaşma. Gists, tek bir dosya veya birden fazla dosya içeren küçük kod parçacıkları için idealdir. Gists, özel veya herkese açık olabilir.
+
+## En İyi Uygulamalar
+
+### Commit Mesajları
+Açıklayıcı ve anlamlı commit mesajları yazın. Örneğin:
+```
+Kötü: Bug fix
+İyi: Kullanıcı kaydı sırasında yaşanan hata düzeltildi
+```
+
+### Branch Stratejileri
+Farklı özellikler veya hata düzeltmeleri için farklı dallar kullanın. Genelde `feature`, `develop`, `master` gibi branch yapıları kullanılır.
+
+## Sıkça Karşılaşılan Sorunlar ve Çözümleri
+
+### Merge Conflicts
+İki dal birleştirilirken aynı satırda yapılan değişikliklerden dolayı çakışmalar olabilir. Bu çakışmaları manuel olarak çözmeniz gerekir.
+
+### Detached HEAD
+"Detached HEAD" durumu, HEAD'in spesifik bir commit'i işaret ettiği, herhangi bir dalda olmadığı anlamına gelir. Bu durumdan çıkmak için yeni bir dal oluşturabilir veya mevcut bir dala geri dönebilirsiniz.
+```bash
+git checkout -b yeni_dal_adı
+```
+veya
+```bash
+git checkout mevcut_dal_adı
+```
+
+
+
+
